@@ -1,8 +1,24 @@
 {
   "version": "0.1.0",
+  "name": "@kmpizmad/react-hooks-util",
+  "author": "kmpizmad",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
+  "module": "dist/react-hooks-util.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/react-hooks-util.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/react-hooks-util.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "peerDependencies": {
+    "react": ">=16"
+  },
   "files": [
     "dist",
     "src"
@@ -10,17 +26,24 @@
   "engines": {
     "node": ">=10"
   },
-  "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test --passWithNoTests",
-    "lint": "tsdx lint",
-    "prepare": "tsdx build",
-    "size": "size-limit",
-    "analyze": "size-limit --why"
+  "description": "Utility library for common React hooks such as useMountEffect, useUpdateEffect, useUnmount effect etc..",
+  "keywords": [
+    "react",
+    "react-hooks",
+    "utils",
+    "utility"
+  ],
+  "homepage": "https://github.com/kmpizmad/react-hooks-util#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kmpizmad/react-hooks-util.git"
   },
-  "peerDependencies": {
-    "react": ">=16"
+  "bugs": {
+    "url": "https://github.com/kmpizmad/react-hooks-util/issues",
+    "email": "nagy.viktor392@gmail.com"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "husky": {
     "hooks": {
@@ -33,19 +56,6 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "@kmpizmad/react-hooks-util",
-  "author": "kmpizmad",
-  "module": "dist/react-hooks-util.esm.js",
-  "size-limit": [
-    {
-      "path": "dist/react-hooks-util.cjs.production.min.js",
-      "limit": "10 KB"
-    },
-    {
-      "path": "dist/react-hooks-util.esm.js",
-      "limit": "10 KB"
-    }
-  ],
   "devDependencies": {
     "@size-limit/preset-small-lib": "^7.0.8",
     "@types/react": "^17.0.43",
@@ -57,5 +67,14 @@
     "tsdx": "^0.14.1",
     "tslib": "^2.3.1",
     "typescript": "^4.6.3"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test --passWithNoTests",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
   }
 }
