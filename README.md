@@ -1,53 +1,159 @@
 # react-hooks-util
 
 - [react-hooks-util](#react-hooks-util)
-  - [About the project](#about-the-project)
-  - [Implemented hooks](#implemented-hooks)
-    - [Lifecycle hooks](#lifecycle-hooks)
-    - [DOM hooks](#dom-hooks)
-    - [Util hooks](#util-hooks)
-    - [Asynchronous hooks](#asynchronous-hooks)
+  - [Introduction](#introduction)
+  - [Lifecycle hooks](#lifecycle-hooks)
+    - [useMountEffect](#usemounteffect)
+    - [useUnmountEffect](#useunmounteffect)
+    - [useUpdateEffect](#useupdateeffect)
+    - [usePrevState](#useprevstate)
+  - [DOM hooks](#dom-hooks)
+    - [useToggle](#usetoggle)
+  - [Util hooks](#util-hooks)
+    - [useLocalStorage](#uselocalstorage)
+    - [useSessionStorage](#usesessionstorage)
+  - [Asynchronous hooks](#asynchronous-hooks)
+    - [useAsync](#useasync)
+    - [useFetch](#usefetch)
+  - [Types](#types)
+    - [AsyncObject<T>](#asyncobjectt)
+    - [AsyncError](#asyncerror)
+    - [FetchConfig](#fetchconfig)
+    - [State](#state)
+    - [StorageObject](#storageobject)
+    - [ToggleObject](#toggleobject)
+    - [Value](#value)
 
-## About the project
+## Introduction
 
-## Implemented hooks
+> Utility library for common React hooks
 
-### Lifecycle hooks
+The idea was to create a library that contains common functionalities abstracted into hooks rather than implementing them everytime in every project.
 
-| Hook             | Type                                                                      | Description                                                                                                                                               |
-| ---------------- | ------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| useMountEffect   | `(effect: React.EffectCallback) => void`                                  | Represents the `componentDidMount` method from React class components                                                                                     |
-| useUnmountEffect | `(effect: React.EffectCallback, deps: React.DependencyList = []) => void` | Represents the `componentWillUnmount` method from React class components                                                                                  |
-| useUpdateEffect  | `(effect: React.EffectCallback, deps?: React.DependencyList) => void`     | Renders whenever a dependency changes or if provided without a dependency list, renders on any change. Avoid providing an empty dependency list           |
-| usePrevState     | `(state: PrevState) => PrevState`                                         | `getSnapshotBeforeUpdate`, `componentShouldUpdate` and `componentWillRecieveProps` combined in one. Captures the previous state based on the input object |
+[//]: # '## How can I contribute?'
+[//]: # '## How can I support the project?'
 
-**`State`**: `{ [key: number | string]: any }`
+## Lifecycle hooks
 
-### DOM hooks
+### useMountEffect
 
-| Hook      | Type                                       | Description                              |
-| --------- | ------------------------------------------ | ---------------------------------------- |
-| useToggle | `(initialValue?: boolean) => ToggleObject` | Toggles state between `true` and `false` |
+**Type**: `(effect: React.EffectCallback) => void`
 
-**`ToggleObject`**: `{ value: boolean; toggle: () => void }`
+Represents the `componentDidMount` method from React class components
 
-### Util hooks
+### useUnmountEffect
 
-| Hook              | Type                                                  | Description                              |
-| ----------------- | ----------------------------------------------------- | ---------------------------------------- |
-| useLocalStorage   | `(key: string, defaultValue: Value) => StorageObject` | Toggles state between `true` and `false` |
-| useSessionStorage | `(key: string, defaultValue: Value) => StorageObject` | Toggles state between `true` and `false` |
+**Type**: `(effect: React.EffectCallback, deps: React.DependencyList = []) => void`
 
-**`StorageObject`**: `{ value: Value; update: (value: Value) => void; remove: () => void; }`
-**`Value`**: `string | number | boolean | Record<string, any> | null | undefined`
+Represents the `componentWillUnmount` method from React class components
 
-### Asynchronous hooks
+### useUpdateEffect
 
-| Hook     | Type                                                                                      | Description                                                         |
-| -------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| useAsync | `<T = any>(promise: () => Promise<T>, deps: React.DependencyList = []) => AsyncObject<T>` | Handles async functions, re-evaluates whenever a dependency changes |
-| useFetch | `<T = any>(config: FetchConfig, deps: React.DependencyList = []) => AsyncObject<T>`       | Handles API requests, uses the built-in `fetch` module              |
+**Type**: `(effect: React.EffectCallback, deps?: React.DependencyList) => void`
 
-**`AsyncObject<T>`**: `{ loading: boolean; error: AsyncError | undefined; data: T | undefined; }`
-**`AsyncError`**: `{ message: string; [key: number | string]: any; }`
-**`FetchConfig`**: `{ url: string; options?: RequestInit }`
+Renders whenever a dependency changes or if provided without a dependency list, renders on any change. Avoid providing an empty dependency list |
+
+### usePrevState
+
+**Type**: `(state: PrevState) => PrevState`
+
+`getSnapshotBeforeUpdate`, `componentShouldUpdate` and `componentWillRecieveProps` combined in one. Captures the previous state based on the input object |
+
+## DOM hooks
+
+### useToggle
+
+**Type**: `(initialValue?: boolean) => ToggleObject`
+
+Toggles state between `true` and `false`
+
+## Util hooks
+
+### useLocalStorage
+
+**Type**: `(key: string, defaultValue: Value) => StorageObject`
+
+Toggles state between `true` and `false`
+
+### useSessionStorage
+
+**Type**: `(key: string, defaultValue: Value) => StorageObject`
+
+Toggles state between `true` and `false` |
+
+## Asynchronous hooks
+
+### useAsync
+
+**Type**: `<T = any>(promise: () => Promise<T>, deps: React.DependencyList = []) => AsyncObject<T>`
+
+Handles async functions, re-evaluates whenever a dependency changes |
+
+### useFetch
+
+**Type**: `<T = any>(config: FetchConfig, deps: React.DependencyList = []) => AsyncObject<T>`
+
+Handles API requests, uses the built-in `fetch` module |
+
+## Types
+
+### AsyncObject<T>
+
+```typescript
+{
+  loading: boolean;
+  error: AsyncError | undefined;
+  data: T | undefined;
+}
+```
+
+### AsyncError
+
+```typescript
+{
+  message: string;
+  [key: number | string]: any;
+}
+```
+
+### FetchConfig
+
+```typescript
+{
+  url: string;
+  options?: RequestInit
+};
+```
+
+### State
+
+```typescript
+{
+  [key: number | string]: any
+};
+```
+
+### StorageObject
+
+```typescript
+{
+  value: Value;
+  update: (value: Value) => void;
+  remove: () => void;
+}
+```
+
+### ToggleObject
+
+```typescript
+{
+  value: boolean;
+  toggle: () => void
+}
+```
+
+### Value
+
+```typescript
+string | number | boolean | Record<string, any> | null | undefined
+```
