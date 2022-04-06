@@ -30,4 +30,8 @@ export type AsyncObject<T> = {
   error: AsyncError | undefined;
   data: T | undefined;
 };
-export type AsyncError = { message: string; [key: string | number]: any };
+export type AsyncError = {
+  message: string;
+  [key: string]: any;
+  [key: number]: any;
+};

@@ -13,4 +13,4 @@ export function usePrevState(state: PrevState): PrevState {
   return previousRef.current;
 }
 
-type PrevState = { [key: string | number]: any };
+type PrevState = { [key: string]: any; [key: number]: any };

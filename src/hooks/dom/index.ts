@@ -1,2 +1,1 @@
-export { useToggle } from './useToggle';
-export type { ToggleObject } from "./useToggle";
+export { useToggle, ToggleObject } from './useToggle';

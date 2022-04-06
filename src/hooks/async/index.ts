@@ -1,5 +1,2 @@
-export { useAsync } from './useAsync';
-export type { AsyncObject, AsyncError } from "./useAsync";
-
-export { useFetch } from "./useFetch";
-export type { FetchConfig } from "./useFetch";
+export { useAsync, AsyncObject, AsyncError } from './useAsync';
+export { useFetch, FetchConfig } from './useFetch';
