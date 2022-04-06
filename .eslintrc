@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "react-app",
+    "prettier/@typescript-eslint",
+    "plugin:prettier/recommended",
+    "plugin:@next/next/recommended"
+  ],
+  "rules": {
+    "react-hooks/exhaustive-deps": "off",
+    "@next/next/no-html-link-for-pages": "off"
+  }
+}
