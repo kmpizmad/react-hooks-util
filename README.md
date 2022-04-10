@@ -9,7 +9,14 @@
     - [usePrevState](#useprevstate)
   - [DOM hooks](#dom-hooks)
     - [useToggle](#usetoggle)
+    - [useEventListener](#useeventlistener)
+    - [useScript](#usescript)
   - [Util hooks](#util-hooks)
+    - [useTimeout](#usetimeout)
+    - [useDebounce](#usedebounce)
+    - [useTextShortener](#usetextshortener)
+    - [useRenderCount](#userendercount)
+    - [useDebugInfo](#usedebuginfo)
     - [useLocalStorage](#uselocalstorage)
     - [useSessionStorage](#usesessionstorage)
   - [Asynchronous hooks](#asynchronous-hooks)
@@ -18,9 +25,11 @@
   - [Types](#types)
     - [AsyncObject<T>](#asyncobjectt)
     - [AsyncError](#asyncerror)
+    - [DebugInfo](#debuginfo)
     - [FetchConfig](#fetchconfig)
     - [State](#state)
     - [StorageObject](#storageobject)
+    - [TimeoutObject](#timeoutobject)
     - [ToggleObject](#toggleobject)
     - [Value](#value)
 
@@ -141,7 +150,137 @@ const ToggleComponent = (props: { initialValue?: boolean }) => {
 };
 ```
 
+### useEventListener
+
+_type_: `(type: keyof WindowEventMap, callback: (event: Event) => void, element: HTMLElement | Document | (Window & typeof globalThis) = window) => void`
+
+Attaches a global event listener to the `element` (`window` object by default).
+
+```typescript
+const EventListenerComponent = () => {
+  const [value, setValue] = React.useState('Loading');
+
+  useEventListener('load', () => {
+    setTimeout(() => {
+      setValue('Hello World!');
+    }, 100);
+  });
+
+  return <div data-testid="test-value">{value}</div>;
+};
+```
+
+### useScript
+
+_type_: `(url: string) => AsyncObjectWithoutData`
+
+Loads in a script and adds a new `script` node to the DOM.
+
+```typescript
+const ScriptComponent = () => {
+  const { loading, error } = useScript(
+    'https://code.jquery.com/jquery-3.6.0.min.js'
+  );
+
+  if (loading) return <div>Loading</div>;
+  if (error) return <div>Error</div>;
+
+  return (
+    <div>
+      {Object.keys(window)
+        .includes('$')
+        .toString()}
+    </div>
+  );
+};
+```
+
 ## Util hooks
+
+### useTimeout
+
+_type_: `(callback: () => void, ms: number) => TimeoutObject`
+
+Basically `setTimeout` as a hook.
+
+```typescript
+const TimeoutComponent = () => {
+  const [count, setCount] = React.useState(10);
+  const { clear, reset } = useTimeout(() => setCount(0), 1000);
+
+  return (
+    <div>
+      <div>{count}</div>
+      <button onClick={clear}>Clear</button>
+      <button onClick={reset}>Reset</button>
+    </div>
+  );
+};
+```
+
+### useDebounce
+
+_type_: `(callback: () => void, ms: number, deps: React.DependencyList = []) => void`
+
+```typescript
+const DebounceComponent = () => {
+  const [count, setCount] = React.useState(0);
+  const [dependency, setDependency] = React.useState(10);
+  useDebounce(() => setCount(dependency), 200, [dependency]);
+
+  return (
+    <div>
+      <div>{count}</div>
+      <button onClick={() => setDependency(dependency + 1)}>Click Me!</button>
+    </div>
+  );
+};
+```
+
+### useTextShortener
+
+_type_: `(text: string, options: TextShortenerOptions) => string`
+
+Shortens a text to a specified `limit`. Customizable through `options`.
+
+```typescript
+const TextShortenerComponent = (props: Omit<TextShortenerOptions, 'limit'>) => {
+  const [limit, setLimit] = React.useState(11);
+  const short = useTextShortener('Lorem ipsum dolor sit amet', {
+    limit,
+    ...props,
+  });
+
+  return (
+    <div>
+      <div>{short}</div>
+      <button onClick={() => setLimit(6)}>Click Me!</button>
+    </div>
+  );
+};
+```
+
+### useRenderCount
+
+_type_: `() => number`
+
+### useDebugInfo
+
+_type_: `<Props extends Record<string, any>>(Component: React.ComponentType<Props>, props: Record<string, any>) => DebugInfo`
+
+```typescript
+const DebugComponent: React.FC<{ count: number }> = props => {
+  const [count, setCount] = React.useState(props.count);
+  const debug = useDebugInfo(DebugComponent, { count });
+
+  return (
+    <div>
+      <div>{JSON.stringify(debug)}</div>
+      <button onClick={() => setCount(count + 1)}>Click Me!</button>
+    </div>
+  );
+};
+```
 
 ### useLocalStorage
 
@@ -236,6 +375,17 @@ Handles API requests, uses the built-in `fetch` module
 }
 ```
 
+### DebugInfo
+
+```typescript
+{
+  renderCount: number;
+  changedProps: Record<string, any>;
+  timeSinceLastRender: number;
+  lastRenderTimestamp: number;
+}
+```
+
 ### FetchConfig
 
 ```typescript
@@ -260,6 +410,15 @@ Handles API requests, uses the built-in `fetch` module
   value: Value;
   update: (value: Value) => void;
   remove: () => void;
+}
+```
+
+### TimeoutObject
+
+```typescript
+{
+  reset: () => void;
+  clear: () => void;
 }
 ```
 
