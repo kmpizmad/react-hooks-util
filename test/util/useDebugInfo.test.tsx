@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { fireEvent, render } from '@testing-library/react';
+import { fireEvent, render, RenderResult } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import { useDebugInfo } from '../../src';
 
@@ -16,18 +16,30 @@ const DebugComponent: React.FC<{ count: number }> = props => {
 };
 
 describe('useDebugInfo', () => {
-  it('should log debug info', () => {
-    const component = render(<DebugComponent count={0} />);
-    const node = component.getByTestId('test-value');
-    const button = component.getByText('Click Me!');
+  let component: RenderResult;
+  let node: HTMLElement;
+  let button: HTMLElement;
 
+  beforeEach(() => {
+    component = render(<DebugComponent count={0} />);
+    node = component.getByTestId('test-value');
+    button = component.getByText('Click Me!');
+  });
+
+  afterEach(() => {
+    component.unmount();
+  });
+
+  it('should be in the DOM', () => {
     expect(node).toBeInTheDocument();
+  });
+
+  it('should log debug info', () => {
     expect(node.textContent).toMatch('"renderCount":1');
     expect(node.textContent).toMatch('"changedProps":{}');
 
     fireEvent.click(button);
 
-    expect(node).toBeInTheDocument();
     expect(node.textContent).toMatch('"renderCount":2');
     expect(node.textContent).toMatch(
       '"changedProps":{"count":{"previous":0,"current":1}}'

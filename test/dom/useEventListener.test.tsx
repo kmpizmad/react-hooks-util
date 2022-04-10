@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { render } from '@testing-library/react';
+import { render, RenderResult } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import { useEventListener } from '../../src';
 
@@ -16,11 +16,23 @@ const EventListenerComponent = () => {
 };
 
 describe('useEventListener', () => {
-  it('should attach a global listener', () => {
-    const component = render(<EventListenerComponent />);
-    const node = component.getByTestId('test-value');
+  let component: RenderResult;
+  let node: HTMLElement;
 
+  beforeEach(() => {
+    component = render(<EventListenerComponent />);
+    node = component.getByTestId('test-value');
+  });
+
+  afterEach(() => {
+    component.unmount();
+  });
+
+  it('should be in the DOM', () => {
     expect(node).toBeInTheDocument();
+  });
+
+  it('should attach a global listener', () => {
     expect(node.textContent).toBe('Loading');
     setTimeout(() => {
       expect(node.textContent).toBe('Hello World!');

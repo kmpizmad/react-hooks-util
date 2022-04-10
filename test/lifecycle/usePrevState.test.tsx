@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, RenderResult } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import { usePrevState } from '../../src';
 
@@ -16,13 +16,25 @@ const PrevStateComponent = () => {
 };
 
 describe('usePrevState', () => {
-  it('should capture the previous state after re-render', async () => {
-    const component = render(<PrevStateComponent />);
+  let component: RenderResult;
+  let node: HTMLElement;
+  let button: HTMLElement;
 
-    const button = component.getByText('Click Me!');
-    const node = component.getByTestId('test-value');
+  beforeEach(() => {
+    component = render(<PrevStateComponent />);
+    node = component.getByTestId('test-value');
+    button = component.getByText('Click Me!');
+  });
 
+  afterEach(() => {
+    component.unmount();
+  });
+
+  it('should be in the DOM', () => {
     expect(node).toBeInTheDocument();
+  });
+
+  it('should capture the previous state after re-render', async () => {
     fireEvent.click(button);
     setTimeout(() => {
       expect(node.textContent).toBe('0');

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, RenderResult } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import { useMountEffect } from '../../src';
 
@@ -20,14 +20,26 @@ const DidMountComponent = () => {
 };
 
 describe('useMountEffect', () => {
+  let component: RenderResult;
+  let node: HTMLElement;
+  let button: HTMLElement;
+
+  beforeEach(() => {
+    component = render(<DidMountComponent />);
+    node = component.getByTestId('test-value');
+    button = component.getByText('Click Me!');
+  });
+
+  afterEach(() => {
+    component.unmount();
+  });
+
+  it('should be in the DOM', () => {
+    expect(node).toBeInTheDocument();
+  });
+
   it('should render on mount only', async () => {
-    const component = render(<DidMountComponent />);
-
-    const button = component.getByText('Click Me!');
-    const node = component.getByTestId('test-value');
-
     for (let i: number = 0; i < 3; i++) {
-      expect(node).toBeInTheDocument();
       fireEvent.click(button);
       expect(node.textContent).toBe('1');
     }

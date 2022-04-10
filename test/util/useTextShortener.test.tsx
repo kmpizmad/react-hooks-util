@@ -19,72 +19,57 @@ const TextShortenerComponent = (props: Omit<TextShortenerOptions, 'limit'>) => {
 };
 
 describe('useTextShortener', () => {
+  it('should be in the DOM', () => {
+    const component = render(<TextShortenerComponent />);
+    const node = component.getByTestId('test-value');
+    expect(node).toBeInTheDocument();
+  });
+
   describe('should shorten text input with', () => {
     it('default options', () => {
       const component = render(<TextShortenerComponent />);
       const node = component.getByTestId('test-value');
       const button = component.getByText('Click Me!');
-
-      expect(node).toBeInTheDocument();
       expect(node.textContent).toBe('Lorem ipsum...');
-
       fireEvent.click(button);
-
-      expect(node).toBeInTheDocument();
       expect(node.textContent).toBe('Lorem...');
     });
+
     it("'allowDots' option", () => {
       const component = render(<TextShortenerComponent allowDots={false} />);
       const node = component.getByTestId('test-value');
       const button = component.getByText('Click Me!');
-
-      expect(node).toBeInTheDocument();
       expect(node.textContent).toBe('Lorem ipsum');
-
       fireEvent.click(button);
-
-      expect(node).toBeInTheDocument();
       expect(node.textContent).toBe('Lorem');
     });
+
     it("'replaceDotsWith' option", () => {
       const component = render(<TextShortenerComponent replaceDotsWith="!" />);
       const node = component.getByTestId('test-value');
       const button = component.getByText('Click Me!');
-
-      expect(node).toBeInTheDocument();
       expect(node.textContent).toBe('Lorem ipsum!');
-
       fireEvent.click(button);
-
-      expect(node).toBeInTheDocument();
       expect(node.textContent).toBe('Lorem!');
     });
+
     it("'numberOfDots' option", () => {
       const component = render(<TextShortenerComponent numberOfDots={5} />);
       const node = component.getByTestId('test-value');
       const button = component.getByText('Click Me!');
-
-      expect(node).toBeInTheDocument();
       expect(node.textContent).toBe('Lorem ipsum.....');
-
       fireEvent.click(button);
-
-      expect(node).toBeInTheDocument();
       expect(node.textContent).toBe('Lorem.....');
     });
+
     it("'allowDots' off and 'numberOfDots' option", () => {
       const component = render(
         <TextShortenerComponent allowDots={false} numberOfDots={5} />
       );
       const node = component.getByTestId('test-value');
       const button = component.getByText('Click Me!');
-
-      expect(node).toBeInTheDocument();
       expect(node.textContent).toBe('Lorem ipsum');
-
       fireEvent.click(button);
-
-      expect(node).toBeInTheDocument();
       expect(node.textContent).toBe('Lorem');
     });
   });
