@@ -9,7 +9,7 @@ export function useTextShortener(
   React.useEffect(() => {
     const str: string = text.substring(0, options.limit);
     const trimmed: string = str.trim();
-    const replaced: string = trimmed.replaceAll(/[^a-zA-Z0-9\\s]+$/g, '');
+    const replaced: string = trimmed.replace(/[^a-zA-Z0-9\\s]+$/g, '');
     const shortened: string = createText(replaced, options);
     setShort(shortened);
   }, [text, options.limit]);
