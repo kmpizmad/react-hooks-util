@@ -9,11 +9,11 @@
   "size-limit": [
     {
       "path": "dist/react-hooks-util.cjs.production.min.js",
-      "limit": "10 KB"
+      "limit": "100 kB"
     },
     {
       "path": "dist/react-hooks-util.esm.js",
-      "limit": "10 KB"
+      "limit": "100 kB"
     }
   ],
   "peerDependencies": {
