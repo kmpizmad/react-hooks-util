@@ -9,11 +9,11 @@
   "size-limit": [
     {
       "path": "dist/react-hooks-util.cjs.production.min.js",
-      "limit": "100 kB"
+      "limit": "2 s"
     },
     {
       "path": "dist/react-hooks-util.esm.js",
-      "limit": "100 kB"
+      "limit": "2 s"
     }
   ],
   "peerDependencies": {
@@ -52,14 +52,16 @@
     "trailingComma": "es5"
   },
   "dependencies": {
-    "lodash": "^4.17.21",
-    "lodash-es": "^4.17.21"
+    "lodash.isequal": "^4.5.0"
   },
   "devDependencies": {
     "@size-limit/preset-small-lib": "^7.0.8",
+    "@size-limit/time": "^7.0.8",
+    "@size-limit/webpack": "^7.0.8",
+    "@size-limit/webpack-why": "^7.0.8",
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^13.0.0",
-    "@types/lodash": "^4.14.181",
+    "@types/lodash.isequal": "^4.5.5",
     "@types/react": "^17.0.43",
     "@types/react-dom": "^17.0.14",
     "eslint-config-next": "^12.1.4",

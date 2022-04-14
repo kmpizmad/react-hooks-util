@@ -1,11 +1,11 @@
 import * as React from 'react';
-import _ from 'lodash';
+import isEqual from 'lodash.isequal';
 
 export function usePrevState(state: PrevState): PrevState {
   const currentRef = React.useRef<PrevState>(state);
   const previousRef = React.useRef<PrevState>({});
 
-  if (!_.isEqual(currentRef.current, state)) {
+  if (!isEqual(currentRef.current, state)) {
     previousRef.current = currentRef.current;
     currentRef.current = state;
   }
