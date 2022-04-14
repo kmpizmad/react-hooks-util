@@ -1,5 +1,5 @@
 {
-  "version": "0.3.1",
+  "version": "0.0.0-development",
   "name": "@kmpizmad/react-hooks-util",
   "author": "kmpizmad",
   "license": "MIT",
@@ -51,6 +51,11 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
   "dependencies": {
     "lodash.isequal": "^4.5.0"
   },
@@ -64,11 +69,13 @@
     "@types/lodash.isequal": "^4.5.5",
     "@types/react": "^17.0.43",
     "@types/react-dom": "^17.0.14",
+    "cz-conventional-changelog": "3.3.0",
     "eslint-config-next": "^12.1.5",
     "husky": "^7.0.4",
     "pinst": "^3.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "semantic-release": "^19.0.2",
     "size-limit": "^7.0.8",
     "tsdx": "^0.14.1",
     "tslib": "^2.3.1",
@@ -84,6 +91,7 @@
     "prepack": "pinst --disable",
     "postpack": "pinst --enable",
     "size": "size-limit",
-    "analyze": "size-limit --why"
+    "analyze": "size-limit --why",
+    "semantic-release": "semantic-release --branches main"
   }
 }
