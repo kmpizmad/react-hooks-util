@@ -27,4 +27,4 @@ Please **do not** do any the following:
 These are not appropriate avenues for seeking help or support with an open-source project. Please follow the guidelines in the previous section. Public questions get public answers, which benefits everyone in the community. ✌️
 
 [so]: https://stackoverflow.com
-[contributing]: https://github.com/kmpizmad/react-hooks-util/blob/master/docs/CONTRIBUTING.md
+[contributing]: https://github.com/kmpizmad/react-hooks-util/tree/master/docs/CONTRIBUTING.md

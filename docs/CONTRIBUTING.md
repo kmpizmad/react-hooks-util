@@ -25,11 +25,11 @@ _Pull requests, bug reports, and all other forms of contribution are welcomed an
 
 ## :book: Code of Conduct
 
-Please review our [Code of Conduct][code_of_conduct]. It is in effect at all times. We expect it to be honored by everyone who contributes to this project. Acting like an asshole will not be tolerated.
+Please review our [Code of Conduct][code_of_conduct_url]. It is in effect at all times. We expect it to be honored by everyone who contributes to this project. Acting like an asshole will not be tolerated.
 
 ## :bulb: Asking Questions
 
-See our [Support Guide][support]. In short, GitHub issues are not the appropriate place to debug your specific project, but should be reserved for filing bugs and feature requests.
+See our [Support Guide][support_url]. In short, GitHub issues are not the appropriate place to debug your specific project, but should be reserved for filing bugs and feature requests.
 
 ## :inbox_tray: Opening an Issue
 
@@ -37,7 +37,7 @@ Before [creating an issue][creating_an_issue], check if you are using the latest
 
 ### :lock: Reporting Security Issues
 
-Review our [Security Policy][security]. **Do not** file a public issue for security vulnerabilities.
+Review our [Security Policy][security_url]. **Do not** file a public issue for security vulnerabilities.
 
 ### :beetle: Bug Reports and Other Issues
 
@@ -45,7 +45,7 @@ A great way to contribute to the project is to send a detailed issue when you en
 
 In short, since you are most likely a developer, **provide a ticket that you would like to receive**.
 
-- **Review the documentation and [Support Guide][support]** before opening a new issue.
+- **Review the documentation and [Support Guide][support_url]** before opening a new issue.
 
 - **Do not open a duplicate issue!** Search through existing issues to see if your issue has previously been reported. If your issue exists, comment with any additional information you have. You may simply note "I have this problem too", which helps prioritize the most common problems and requests.
 
@@ -199,9 +199,9 @@ _Many of the ideas and prose for the statements in this document were based on o
 
 _We commend them for their efforts to facilitate collaboration in their projects._
 
-[code_of_conduct]: https://github.com/kmpizmad/react-hooks-util/blob/master/docs/CODE_OF_CONDUCT.md
-[support]: https://github.com/kmpizmad/react-hooks-util/blob/master/docs/SUPPORT.md
-[security]: https://github.com/kmpizmad/react-hooks-util/blob/master/docs/SECURITY.md
+[code_of_conduct_url]: https://github.com/kmpizmad/react-hooks-util/tree/master/docs/CODE_OF_CONDUCT.md
+[support_url]: https://github.com/kmpizmad/react-hooks-util/tree/master/docs/SUPPORT.md
+[security_url]: https://github.com/kmpizmad/react-hooks-util/tree/master/docs/SECURITY.md
 [creating_an_issue]: https://help.github.com/en/github/managing-your-work-on-github/creating-an-issue
 [add_reactions_to_pr]: https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/
 [formatting_syntax]: https://help.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax
