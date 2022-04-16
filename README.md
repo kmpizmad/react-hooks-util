@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 - [Introduction](#introduction)
 - [Guidelines](#guidelines)
 - [Lifecycle hooks](#lifecycle-hooks)
@@ -30,6 +31,43 @@
   - [TimeoutObject](#timeoutobject)
   - [ToggleObject](#toggleobject)
   - [Value](#value)
+=======
+# react-hooks-util
+
+- [react-hooks-util](#react-hooks-util)
+  - [Introduction](#introduction)
+  - [Lifecycle hooks](#lifecycle-hooks)
+    - [useMountEffect](#usemounteffect)
+    - [useUnmountEffect](#useunmounteffect)
+    - [useUpdateEffect](#useupdateeffect)
+    - [usePrevState](#useprevstate)
+  - [DOM hooks](#dom-hooks)
+    - [useToggle](#usetoggle)
+    - [useEventListener](#useeventlistener)
+    - [useScript](#usescript)
+  - [Util hooks](#util-hooks)
+    - [useTimeout](#usetimeout)
+    - [useDebounce](#usedebounce)
+    - [useTextShortener](#usetextshortener)
+    - [useOnlineStatus](#useonlinestatus)
+    - [useRenderCount](#userendercount)
+    - [useDebugInfo](#usedebuginfo)
+    - [useLocalStorage](#uselocalstorage)
+    - [useSessionStorage](#usesessionstorage)
+  - [Asynchronous hooks](#asynchronous-hooks)
+    - [useAsync](#useasync)
+    - [useFetch](#usefetch)
+  - [Types](#types)
+    - [AsyncObject<T>](#asyncobjectt)
+    - [AsyncError](#asyncerror)
+    - [DebugInfo](#debuginfo)
+    - [FetchConfig](#fetchconfig)
+    - [State](#state)
+    - [StorageObject](#storageobject)
+    - [TimeoutObject](#timeoutobject)
+    - [ToggleObject](#toggleobject)
+    - [Value](#value)
+>>>>>>> Stashed changes
 
 ## Introduction
 
@@ -261,6 +299,12 @@ const TextShortenerComponent = (props: Omit<TextShortenerOptions, 'limit'>) => {
   );
 };
 ```
+
+### useOnlineStatus
+
+_type_: `() => boolean`
+
+Returns `true` or `false`. Depends on the browser agent status.
 
 ### useRenderCount
 
