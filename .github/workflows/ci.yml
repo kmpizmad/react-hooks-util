@@ -35,7 +35,7 @@ jobs:
   publish:
     name: Publishes package
     runs-on: ubuntu-latest
-    if: ${{ github.ref == 'refs/heads/main' }}
+    if: ${{ github.ref == 'refs/heads/master' }}
     needs: [build]
     steps:
       - name: Checkout repo
