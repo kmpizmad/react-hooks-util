@@ -1,3 +1,36 @@
+- [Introduction](#introduction)
+- [Guidelines](#guidelines)
+- [Lifecycle hooks](#lifecycle-hooks)
+  - [useMountEffect](#usemounteffect)
+  - [useUnmountEffect](#useunmounteffect)
+  - [useUpdateEffect](#useupdateeffect)
+  - [usePrevState](#useprevstate)
+- [DOM hooks](#dom-hooks)
+  - [useToggle](#usetoggle)
+  - [useEventListener](#useeventlistener)
+  - [useScript](#usescript)
+- [Util hooks](#util-hooks)
+  - [useTimeout](#usetimeout)
+  - [useDebounce](#usedebounce)
+  - [useTextShortener](#usetextshortener)
+  - [useRenderCount](#userendercount)
+  - [useDebugInfo](#usedebuginfo)
+  - [useLocalStorage](#uselocalstorage)
+  - [useSessionStorage](#usesessionstorage)
+- [Asynchronous hooks](#asynchronous-hooks)
+  - [useAsync](#useasync)
+  - [useFetch](#usefetch)
+- [Types](#types)
+  - [AsyncObject<T>](#asyncobjectt)
+  - [AsyncError](#asyncerror)
+  - [DebugInfo](#debuginfo)
+  - [FetchConfig](#fetchconfig)
+  - [State](#state)
+  - [StorageObject](#storageobject)
+  - [TimeoutObject](#timeoutobject)
+  - [ToggleObject](#toggleobject)
+  - [Value](#value)
+
 # react-hooks-util
 
 - [react-hooks-util](#react-hooks-util)
@@ -15,6 +48,7 @@
     - [useTimeout](#usetimeout)
     - [useDebounce](#usedebounce)
     - [useTextShortener](#usetextshortener)
+    - [useOnlineStatus](#useonlinestatus)
     - [useRenderCount](#userendercount)
     - [useDebugInfo](#usedebuginfo)
     - [useLocalStorage](#uselocalstorage)
@@ -39,8 +73,12 @@
 
 The idea was to create a library that contains common functionalities abstracted into hooks rather than implementing them everytime in every project.
 
-[//]: # '## How can I contribute?'
-[//]: # '## How can I support the project?'
+## Guidelines
+
+- Checkout the latest updates in the [changelog][changelog_url]
+- See our [contributing guidelines][contributing_url]
+- See our [Support Guide][support_url]
+- See our [Security Policy][security_url]
 
 ## Lifecycle hooks
 
@@ -260,6 +298,12 @@ const TextShortenerComponent = (props: Omit<TextShortenerOptions, 'limit'>) => {
 };
 ```
 
+### useOnlineStatus
+
+_type_: `() => boolean`
+
+Returns `true` or `false`. Depends on the browser agent status.
+
 ### useRenderCount
 
 _type_: `() => number`
@@ -436,3 +480,8 @@ Handles API requests, uses the built-in `fetch` module
 ```typescript
 string | number | boolean | Record<string, any> | null | undefined
 ```
+
+[changelog_url]: https://github.com/kmpizmad/react-hooks-util/blob/master/docs/CHANGELOG.md
+[contributing_url]: https://github.com/kmpizmad/react-hooks-util/tree/master/docs/CONTRIBUTING.md
+[support_url]: https://github.com/kmpizmad/react-hooks-util/tree/master/docs/SUPPORT.md
+[security_url]: https://github.com/kmpizmad/react-hooks-util/tree/master/docs/SECURITY.md
