@@ -85,8 +85,10 @@
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint",
     "size": "size-limit",
+    "prepare": "tsdx build",
     "analyze": "size-limit --why",
     "semantic-release": "semantic-release --branches master",
-    "prepare": "tsdx build"
+    "commit": "git-cz",
+    "gacp": "git add -A && yarn commit && git push"
   }
 }
