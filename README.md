@@ -1,37 +1,35 @@
-# react-hooks-util
-
-- [react-hooks-util](#react-hooks-util)
-  - [Introduction](#introduction)
-  - [Lifecycle hooks](#lifecycle-hooks)
-    - [useMountEffect](#usemounteffect)
-    - [useUnmountEffect](#useunmounteffect)
-    - [useUpdateEffect](#useupdateeffect)
-    - [usePrevState](#useprevstate)
-  - [DOM hooks](#dom-hooks)
-    - [useToggle](#usetoggle)
-    - [useEventListener](#useeventlistener)
-    - [useScript](#usescript)
-  - [Util hooks](#util-hooks)
-    - [useTimeout](#usetimeout)
-    - [useDebounce](#usedebounce)
-    - [useTextShortener](#usetextshortener)
-    - [useRenderCount](#userendercount)
-    - [useDebugInfo](#usedebuginfo)
-    - [useLocalStorage](#uselocalstorage)
-    - [useSessionStorage](#usesessionstorage)
-  - [Asynchronous hooks](#asynchronous-hooks)
-    - [useAsync](#useasync)
-    - [useFetch](#usefetch)
-  - [Types](#types)
-    - [AsyncObject<T>](#asyncobjectt)
-    - [AsyncError](#asyncerror)
-    - [DebugInfo](#debuginfo)
-    - [FetchConfig](#fetchconfig)
-    - [State](#state)
-    - [StorageObject](#storageobject)
-    - [TimeoutObject](#timeoutobject)
-    - [ToggleObject](#toggleobject)
-    - [Value](#value)
+- [Introduction](#introduction)
+- [Changelog](#changelog)
+- [Lifecycle hooks](#lifecycle-hooks)
+  - [useMountEffect](#usemounteffect)
+  - [useUnmountEffect](#useunmounteffect)
+  - [useUpdateEffect](#useupdateeffect)
+  - [usePrevState](#useprevstate)
+- [DOM hooks](#dom-hooks)
+  - [useToggle](#usetoggle)
+  - [useEventListener](#useeventlistener)
+  - [useScript](#usescript)
+- [Util hooks](#util-hooks)
+  - [useTimeout](#usetimeout)
+  - [useDebounce](#usedebounce)
+  - [useTextShortener](#usetextshortener)
+  - [useRenderCount](#userendercount)
+  - [useDebugInfo](#usedebuginfo)
+  - [useLocalStorage](#uselocalstorage)
+  - [useSessionStorage](#usesessionstorage)
+- [Asynchronous hooks](#asynchronous-hooks)
+  - [useAsync](#useasync)
+  - [useFetch](#usefetch)
+- [Types](#types)
+  - [AsyncObject<T>](#asyncobjectt)
+  - [AsyncError](#asyncerror)
+  - [DebugInfo](#debuginfo)
+  - [FetchConfig](#fetchconfig)
+  - [State](#state)
+  - [StorageObject](#storageobject)
+  - [TimeoutObject](#timeoutobject)
+  - [ToggleObject](#toggleobject)
+  - [Value](#value)
 
 ## Introduction
 
@@ -41,6 +39,10 @@ The idea was to create a library that contains common functionalities abstracted
 
 [//]: # '## How can I contribute?'
 [//]: # '## How can I support the project?'
+
+## Changelog
+
+> Checkout [changelog][changelog_url] first
 
 ## Lifecycle hooks
 
@@ -436,3 +438,5 @@ Handles API requests, uses the built-in `fetch` module
 ```typescript
 string | number | boolean | Record<string, any> | null | undefined
 ```
+
+[changelog_url]: https://github.com/kmpizmad/react-hooks-util/blob/master/docs/CHANGELOG.md
