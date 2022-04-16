@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 - [Introduction](#introduction)
 - [Guidelines](#guidelines)
 - [Lifecycle hooks](#lifecycle-hooks)
@@ -67,7 +66,6 @@
     - [TimeoutObject](#timeoutobject)
     - [ToggleObject](#toggleobject)
     - [Value](#value)
->>>>>>> Stashed changes
 
 ## Introduction
 
