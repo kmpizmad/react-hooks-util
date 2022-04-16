@@ -1,5 +1,5 @@
 - [Introduction](#introduction)
-- [Changelog](#changelog)
+- [Guidelines](#guidelines)
 - [Lifecycle hooks](#lifecycle-hooks)
   - [useMountEffect](#usemounteffect)
   - [useUnmountEffect](#useunmounteffect)
@@ -37,12 +37,12 @@
 
 The idea was to create a library that contains common functionalities abstracted into hooks rather than implementing them everytime in every project.
 
-[//]: # '## How can I contribute?'
-[//]: # '## How can I support the project?'
+## Guidelines
 
-## Changelog
-
-> Checkout [changelog][changelog_url] first
+- Checkout the latest updates in the [changelog][changelog_url]
+- See our [contributing guidelines][contributing_url]
+- See our [Support Guide][support_url]
+- See our [Security Policy][security_url]
 
 ## Lifecycle hooks
 
@@ -440,3 +440,6 @@ string | number | boolean | Record<string, any> | null | undefined
 ```
 
 [changelog_url]: https://github.com/kmpizmad/react-hooks-util/blob/master/docs/CHANGELOG.md
+[contributing_url]: https://github.com/kmpizmad/react-hooks-util/tree/master/docs/CONTRIBUTING.md
+[support_url]: https://github.com/kmpizmad/react-hooks-util/tree/master/docs/SUPPORT.md
+[security_url]: https://github.com/kmpizmad/react-hooks-util/tree/master/docs/SECURITY.md
