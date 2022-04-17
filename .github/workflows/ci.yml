@@ -2,13 +2,12 @@ name: CI
 on:
   push:
     branches:
-      - feature/*
-      - bugfix/*
-      - hotfix/*
-      - release/*
+      - '*'
+    branches-ignore:
+      - master
   pull_request:
     branches:
-      - '*'
+      - master
 jobs:
   build:
     name: Builds on Node ${{ matrix.node }} and ${{ matrix.os }}
