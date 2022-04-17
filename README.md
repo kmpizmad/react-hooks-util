@@ -13,6 +13,7 @@
   - [useTimeout](#usetimeout)
   - [useDebounce](#usedebounce)
   - [useTextShortener](#usetextshortener)
+  - [useOnlineStatus](#useonlinestatus)
   - [useRenderCount](#userendercount)
   - [useDebugInfo](#usedebuginfo)
   - [useLocalStorage](#uselocalstorage)
@@ -261,6 +262,12 @@ const TextShortenerComponent = (props: Omit<TextShortenerOptions, 'limit'>) => {
   );
 };
 ```
+
+### useOnlineStatus
+
+_type_: `() => boolean`
+
+Returns `true` or `false`. Depends on the browser agent status.
 
 ### useRenderCount
 
